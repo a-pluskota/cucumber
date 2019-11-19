@@ -34,6 +34,7 @@ public class AbstractStepdefs {
     protected void after(Scenario scenario) {
 
         if (driver != null) {
+
             if (scenario.isFailed()) {
 
                 File file = ((TakesScreenshot)driver)
@@ -53,8 +54,10 @@ public class AbstractStepdefs {
                 try {
                     FileUtils.copyFile(file, new File(pathToFile));
 
-                    logger.info(String
-                            .format("File %s with screen form failed test was saved in path %s.", fileName, pathToFile));
+                    logger.info(String.format(
+                            "File %s with screenshot of failed test was saved in path %s.",
+                            fileName,
+                            pathToFile));
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -63,4 +66,5 @@ public class AbstractStepdefs {
             }
         }
     }
+
 }

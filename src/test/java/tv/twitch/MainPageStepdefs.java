@@ -41,9 +41,7 @@ public class MainPageStepdefs extends AbstractStepdefs {
 
         assertTrue(
                 "Featured video player is not displayed on main page.",
-                mainPage.isFeaturedVideoPlayerDisplayed()
-        );
-        assertTrue(false);
+                mainPage.isFeaturedVideoPlayerDisplayed());
     }
 
 
@@ -52,8 +50,7 @@ public class MainPageStepdefs extends AbstractStepdefs {
 
         assertTrue(
                 "Sign up button is not displayed on main page.",
-                mainPage.isSignUpButtonDisplayed()
-        );
+                mainPage.isSignUpButtonDisplayed());
     }
 
     @Then("Sign in button is displayed.")
@@ -61,8 +58,7 @@ public class MainPageStepdefs extends AbstractStepdefs {
 
         assertTrue(
                 "Sign in button is not displayed on main page.",
-                mainPage.isSignInButtonDisplayed()
-        );
+                mainPage.isSignInButtonDisplayed());
     }
 
 

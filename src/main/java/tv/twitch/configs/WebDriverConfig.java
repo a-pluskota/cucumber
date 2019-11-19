@@ -23,7 +23,7 @@ public class WebDriverConfig {
                 .chromedriver()
                 .setup();
 
-        logger.info("Starts running Chrome browser on the local machine");
+        logger.info("Starts running Chrome browser on the local machine.");
 
         return new ChromeDriver();
 
@@ -37,7 +37,7 @@ public class WebDriverConfig {
         options.addArguments("--headless");
         options.addArguments("--disable-gpu");
 
-        logger.info("Starts running Chrome browser in headless mode on the local machine");
+        logger.info("Starts running Chrome browser in headless mode on the local machine.");
 
         return new ChromeDriver(options);
 
