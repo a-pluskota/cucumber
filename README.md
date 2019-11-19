@@ -57,11 +57,11 @@ To execute project with parameters, in command line type:
 $ -Dname_of_parameter=value_of_parameter  
 ```  
 #### Available parameters:
-* #####Chrome headless mode:
+* ##### Chrome headless mode:
 ```sh  
 $ -DHEADLESS_MODE=on
 ```  
-* #####Chosen test suit:
+* ##### Chosen test suit:
 ```sh  
 $ -Dcucumber.options="--tags @SUIT_NAME "
 ```  
