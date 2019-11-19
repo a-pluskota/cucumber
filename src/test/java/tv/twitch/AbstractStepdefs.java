@@ -3,6 +3,7 @@ package tv.twitch;
 import cucumber.api.Scenario;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +22,11 @@ public class AbstractStepdefs {
     private static final Logger logger = Logger
             .getLogger(AbstractStepdefs.class);
 
-    public AbstractStepdefs() {
+    public WebDriver getDriver(){
+        return this.driver;
+    }
+
+    public void startBrowser() {
 
         try {
             this.driver = WebDriverConfig.getWebDriver();
@@ -29,6 +34,8 @@ public class AbstractStepdefs {
             e.printStackTrace();
         }
 
+        driver.manage().window()
+                .setSize(new Dimension(1920, 1020));
     }
 
     protected void after(Scenario scenario) {
@@ -64,6 +71,7 @@ public class AbstractStepdefs {
                 }
 
             }
+
         }
     }
 
