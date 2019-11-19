@@ -30,6 +30,10 @@ $ mvn javadoc:javadoc
 #### Logs:
 * generated in file: 
 ```target/log4j/application-logs.log```
+
+#### Screenshots:
+* generated after every failed test in path: 
+```target/screenshots```
   
 #### Test Reports:  
 * turn on reports mode
@@ -61,4 +65,4 @@ $ -DHEADLESS_MODE=on
 ```sh  
 $ -Dcucumber.options="--tags @SUIT_NAME "
 ```  
-Available suits: SMOKE, MAIN_PAGE
+Available suits: ```SMOKE```, ```MAIN_PAGE```,

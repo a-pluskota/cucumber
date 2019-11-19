@@ -43,6 +43,7 @@ public class MainPageStepdefs extends AbstractStepdefs {
                 "Featured video player is not displayed on main page.",
                 mainPage.isFeaturedVideoPlayerDisplayed()
         );
+        assertTrue(false);
     }
 
 
