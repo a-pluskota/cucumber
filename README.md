@@ -25,11 +25,13 @@ $ mvn dependency:resolve
 ```sh  
 $ mvn javadoc:javadoc  
 ```  
+* generated in file: 
+```target/site/apidocs/index.html```
 ##### Logs:
 * generated in file: 
 ```target/log4j/application-logs.log```
   
-##### Test Reports  
+##### Test Reports:  
 * turn on reports mode
 ```sh  
 $ mvn site -DgenerateReports=false  
@@ -49,4 +51,9 @@ $ mvn surefire-report:report-only
 To execute project with parameters, in command line type:   
 ```sh  
 $ -Dname_of_parameter=value_of_parameter  
+```  
+##### Available parameters
+* Chrome headless mode:
+```sh  
+$ -DHEADLESS_MODE=on
 ```  
