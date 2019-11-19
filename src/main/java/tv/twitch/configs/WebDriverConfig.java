@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+/**
+ * This class provides WebDriver configuration.
+ */
 public class WebDriverConfig {
 
     private static final Logger logger = Logger
@@ -14,12 +17,6 @@ public class WebDriverConfig {
     private static final String HEADLESS_MODE = System
             .getProperty("HEADLESS_MODE");
 
-    /**
-     * Use WebDriver implementation that controls a Chrome browser, to run tests on the local machine using Chrome.
-     *
-     * @return ChromeDriver
-     *
-     */
     private static WebDriver getChromeDriver() {
 
         WebDriverManager
@@ -32,13 +29,6 @@ public class WebDriverConfig {
 
     }
 
-    /**
-     * Use WebDriver implementation that controls a Chrome browser, to run tests on the local machine using Chrome.
-     * Also use WebDriver interface Options, to manage running browse in headless mode.
-     *
-     * @return ChromeDriver with headless options
-     *
-     */
     private static WebDriver getHeadlessChromeDriver() {
 
         getChromeDriver();
@@ -54,9 +44,10 @@ public class WebDriverConfig {
     }
 
     /**
-     * Use WebDriver implementation that controls a Chrome browser, to run tests on the local machine using Chrome.
-     * Also, if system property HEADLESS_MODE is provided with value "on", use WebDriver interface Options, to manage
-     * running browse in headless mode.
+     * Uses the WebDriver implementation, which controls the Chrome browser,
+     * to run tests on the local machine using Chrome.
+     * In addition, if the HEADLESS_MODE system property is set to "on",
+     * it uses the WebDriver interface option to manage headless browsing.
      *
      * @return ChromeDriver
      * @throws IncorrectParameterException

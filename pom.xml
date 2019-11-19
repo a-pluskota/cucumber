@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>tv.twitch</groupId>
-    <artifactId>test-automaition</artifactId>
+    <artifactId>cucumber-test-automaition-example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
