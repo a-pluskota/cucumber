@@ -1,5 +1,5 @@
 
-  ### Getting started  
+### Getting started  
   
 
 ##### Java, Java SDK  
@@ -20,16 +20,30 @@ $ mvn dependency:resolve
 ```  
   
 ### Documentation  
+##### Javadoc:
+* generate Javadoc:
 ```sh  
-$ -generate javadoc: mvn javadoc:javadoc  
+$ mvn javadoc:javadoc  
 ```  
+##### Logs:
+* generated in file: 
+```target/log4j/application-logs.log```
   
-### Test Reports  
+##### Test Reports  
+* turn on reports mode
 ```sh  
-$ turn on reports mode: mvn site -DgenerateReports=false  
-$ run tests: mvn test 
-$ generate reports: mvn surefire-report:report-only 
+$ mvn site -DgenerateReports=false  
 ```  
+* run tests: 
+```sh  
+$ mvn test 
+```  
+* generate reports
+```sh  
+$ mvn surefire-report:report-only 
+```  
+* generated in file: 
+```target/site/surefire-report.html```
 
 ### Run parameters  
 To execute project with parameters, in command line type:   
