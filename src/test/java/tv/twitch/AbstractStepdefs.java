@@ -3,6 +3,7 @@ package tv.twitch;
 import cucumber.api.Scenario;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +22,11 @@ public class AbstractStepdefs {
     private static final Logger logger = Logger
             .getLogger(AbstractStepdefs.class);
 
-    public AbstractStepdefs() {
+    public WebDriver getDriver(){
+        return this.driver;
+    }
+
+    public void startBrowser() {
 
         try {
             this.driver = WebDriverConfig.getWebDriver();
@@ -29,40 +34,54 @@ public class AbstractStepdefs {
             e.printStackTrace();
         }
 
+        driver.manage().window()
+                .setSize(new Dimension(1920, 1020));
+    }
+
+    private String createPathToFileWithFailedTestScreenshots(
+            Scenario scenario
+    ) {
+
+        String PATH = "target/screenshots/";
+        String directoryName = PATH
+                .concat(scenario.getName())
+                .replace(" ", "_");
+        String fileName =  new Timestamp(System.currentTimeMillis())
+                .toString()
+                .replace(" ", "_");
+
+        File directory = new File(directoryName);
+
+        if (!directory.exists()){
+            directory.mkdir();
+        }
+
+        return directoryName
+                .concat("/")
+                .concat(fileName)
+                .concat(".png");
     }
 
     protected void after(Scenario scenario) {
 
-        if (driver != null) {
+        if (scenario.isFailed()) {
 
-            if (scenario.isFailed()) {
+            File file = ((TakesScreenshot)driver)
+                    .getScreenshotAs(OutputType.FILE);
 
-                File file = ((TakesScreenshot)driver)
-                        .getScreenshotAs(OutputType.FILE);
+            String pathToFile = createPathToFileWithFailedTestScreenshots(scenario);
 
-                String fileName = new StringBuilder()
-                        .append(scenario.getName())
-                        .append(new Timestamp(System.currentTimeMillis()))
-                        .toString()
-                        .replace(" ", "_");
+            try {
+                FileUtils.copyFile(
+                        file,
+                        new File(pathToFile));
 
-                String pathToFile = new StringBuilder()
-                        .append("target/screenshots/")
-                        .append(fileName)
-                        .toString();
+                logger.info(String.format(
+                        "File with screenshot of failed test was saved in path %s.",
+                        pathToFile));
 
-                try {
-                    FileUtils.copyFile(file, new File(pathToFile));
-
-                    logger.info(String.format(
-                            "File %s with screenshot of failed test was saved in path %s.",
-                            fileName,
-                            pathToFile));
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
