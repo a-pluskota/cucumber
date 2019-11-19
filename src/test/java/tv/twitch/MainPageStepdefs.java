@@ -28,10 +28,13 @@ public class MainPageStepdefs {
     public void closeDriver() {
 
         if (scenario != null) {
-            abstractStepdefs.after(scenario);
+            abstractStepdefs
+                    .after(scenario);
         }
 
-        abstractStepdefs.getDriver().quit();
+        abstractStepdefs
+                .getDriver()
+                .quit();
 
     }
 

@@ -40,7 +40,7 @@ public class AbstractStepdefs {
 
     protected void after(Scenario scenario) {
 
-        if (driver != null) {
+//        if (driver != null) {
 
             if (scenario.isFailed()) {
 
@@ -69,9 +69,7 @@ public class AbstractStepdefs {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-            }
-
+//            }
         }
     }
 
