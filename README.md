@@ -21,7 +21,7 @@ $ mvn dependency:resolve
   
 ## Documentation  
 #### Javadoc:
-* generate Javadoc:
+* ##### generate Javadoc:
 ```sh  
 $ mvn javadoc:javadoc  
 ```  
@@ -36,19 +36,19 @@ $ mvn javadoc:javadoc
 ```target/screenshots```
   
 #### Test Reports:  
-* turn on reports mode
+* ##### turn on reports mode
 ```sh  
 $ mvn site -DgenerateReports=false  
 ```  
-* run tests: 
+* ##### run tests: 
 ```sh  
 $ mvn test 
 ```  
-* generate reports
+* ##### generate reports
 ```sh  
 $ mvn surefire-report:report-only 
 ```  
-* generated in file: 
+* ##### generated in file: 
 ```target/site/surefire-report.html```
 
 ## Run parameters  
