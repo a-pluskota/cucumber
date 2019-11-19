@@ -6,13 +6,13 @@ import org.openqa.selenium.support.FindBy;
 
 public class MainPage extends AbstractPage {
 
-    @FindBy(xpath = "//div[@data-test-selector='highwind-video-player__video-container']/video")
+    @FindBy(xpath = "//div[@data-test-selector='featured-item-video']//video")
     private WebElement featuredVideoPlayer;
 
-    @FindBy(xpath = "//div[@data-test-selector='anon-user-menu__login-button]")
+    @FindBy(xpath = "//button[@data-test-selector='anon-user-menu__login-button']")
     private WebElement signInButton;
 
-    @FindBy(xpath = "//div[@data-test-selector='anon-user-menu__sign-up-button]")
+    @FindBy(xpath = "//button[@data-test-selector='anon-user-menu__sign-up-button']")
     private WebElement signUpButton;
 
     public MainPage(WebDriver driverValue) {
