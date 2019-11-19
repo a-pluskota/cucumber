@@ -38,38 +38,51 @@ public class AbstractStepdefs {
                 .setSize(new Dimension(1920, 1020));
     }
 
+    private String createPathToFileWithFailedTestScreenshots(
+            Scenario scenario
+    ) {
+
+        String PATH = "target/screenshots/";
+        String directoryName = PATH
+                .concat(scenario.getName())
+                .replace(" ", "_");
+        String fileName =  new Timestamp(System.currentTimeMillis())
+                .toString()
+                .replace(" ", "_");
+
+        File directory = new File(directoryName);
+
+        if (!directory.exists()){
+            directory.mkdir();
+        }
+
+        return directoryName
+                .concat("/")
+                .concat(fileName)
+                .concat(".png");
+    }
+
     protected void after(Scenario scenario) {
 
-//        if (driver != null) {
+        if (scenario.isFailed()) {
 
-            if (scenario.isFailed()) {
+            File file = ((TakesScreenshot)driver)
+                    .getScreenshotAs(OutputType.FILE);
 
-                File file = ((TakesScreenshot)driver)
-                        .getScreenshotAs(OutputType.FILE);
+            String pathToFile = createPathToFileWithFailedTestScreenshots(scenario);
 
-                String fileName = new StringBuilder()
-                        .append(scenario.getName())
-                        .append(new Timestamp(System.currentTimeMillis()))
-                        .toString()
-                        .replace(" ", "_");
+            try {
+                FileUtils.copyFile(
+                        file,
+                        new File(pathToFile));
 
-                String pathToFile = new StringBuilder()
-                        .append("target/screenshots/")
-                        .append(fileName)
-                        .toString();
+                logger.info(String.format(
+                        "File with screenshot of failed test was saved in path %s.",
+                        pathToFile));
 
-                try {
-                    FileUtils.copyFile(file, new File(pathToFile));
-
-                    logger.info(String.format(
-                            "File %s with screenshot of failed test was saved in path %s.",
-                            fileName,
-                            pathToFile));
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-//            }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
