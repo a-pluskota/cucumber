@@ -36,7 +36,7 @@ $ mvn javadoc:javadoc
 ```target/screenshots```
   
 #### Test Reports:  
-* ##### turn on reports mode
+* ##### turn on reports mode:
 ```sh  
 $ mvn site -DgenerateReports=false  
 ```  
@@ -44,11 +44,11 @@ $ mvn site -DgenerateReports=false
 ```sh  
 $ mvn test 
 ```  
-* ##### generate reports
+* ##### generate reports:
 ```sh  
 $ mvn surefire-report:report-only 
 ```  
-* ##### generated in file: 
+* generated in file: 
 ```target/site/surefire-report.html```
 
 ## Run parameters  
