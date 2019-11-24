@@ -4,10 +4,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage extends AbstractPage {
+public class SingUpPage extends AbstractPage {
+
 
     @FindBy(id = "login-form")
-    private WebElement loginForm;
+    private WebElement submitForm;
+
+    @FindBy(id = "display-name")
+    private WebElement displayNameInput;
 
     @FindBy(id = "email")
     private WebElement emailInput;
@@ -15,21 +19,34 @@ public class LoginPage extends AbstractPage {
     @FindBy(id = "password")
     private WebElement passwordInput;
 
+    @FindBy(id = "opt-in")
+    private WebElement optInCheckbox;
+
     @FindBy(id = "submit-button")
     private WebElement submitButton;
 
-    public LoginPage(WebDriver driverValue) {
+    public SingUpPage(WebDriver driverValue) {
         super(driverValue);
     }
 
     /**
-     * Uses WebElement interface method isDisplayed to determinate, if login form is displayed.
+     * Uses WebElement interface method isDisplayed to determinate, if submit form is displayed.
      *
      * @return true, if element is displayed
      */
-    public boolean isLoginFormDisplayed() {
+    public boolean isSubmitFormDisplayed() {
 
-        return loginForm.isDisplayed();
+        return submitForm.isDisplayed();
+    }
+
+    /**
+     * Uses WebElement interface method isDisplayed to determinate, if display name input is displayed.
+     *
+     * @return true, if element is displayed
+     */
+    public boolean isDisplayNameInputDisplayed() {
+
+        return displayNameInput.isDisplayed();
     }
 
     /**
@@ -50,6 +67,16 @@ public class LoginPage extends AbstractPage {
     public boolean isPasswordInputDisplayed() {
 
         return passwordInput.isDisplayed();
+    }
+
+    /**
+     * Uses WebElement interface method isDisplayed to determinate, if opt in checkbox is displayed.
+     *
+     * @return true, if element is displayed
+     */
+    public boolean isOptInCheckboxDisplayed() {
+
+        return optInCheckbox.isDisplayed();
     }
 
     /**

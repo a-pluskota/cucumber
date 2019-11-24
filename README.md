@@ -18,6 +18,11 @@
 ```sh  
 $ mvn dependency:resolve  
 ```  
+
+#### Run tests: 
+```sh  
+$ mvn test 
+```  
   
 ## Documentation  
 #### Javadoc:
@@ -49,4 +54,4 @@ $ -DHEADLESS_MODE=on
 ```sh  
 $ -Dcucumber.options="--tags @SUIT_NAME "
 ```  
-Available suits: ```SMOKE```, ```MAIN_PAGE```,
+Available suits: ```SMOKE```, ```LOGIN_PAGE```, ```SIGNUP_PAGE```

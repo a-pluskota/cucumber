@@ -49,13 +49,26 @@ public class MainPage extends AbstractPage {
         return logInButton.isDisplayed();
     }
 
-    public LoginPage clickLogInButton(
-            WebDriver driver
-    ) {
+    /**
+     * Uses the click( method from the AbstractPage to click in the login button from main page header.
+     *
+     * @see com.stackoverflow.webpages.AbstractPage#click(WebElement)
+     * @see com.stackoverflow.webpages.LogInPage
+     */
+    public void clickLogInButton() {
 
         click(logInButton);
+    }
 
-        return new LoginPage(driver);
+    /**
+     * Uses the click( method from the AbstractPage to click in the sign up button from main page header.
+     *
+     * @see com.stackoverflow.webpages.AbstractPage#click(WebElement)
+     * @see com.stackoverflow.webpages.SingUpPage
+     */
+    public void clickSignUpButton() {
+
+        click(signUpButton);
     }
 
 }

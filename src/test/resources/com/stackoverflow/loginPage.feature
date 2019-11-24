@@ -1,13 +1,34 @@
-Feature: Stackoverflow login form page
+Feature: Stackoverflow log in form page
 
   Background:
     Given On Stackoverflow main page
 
   @SMOKE
-  @MAIN_PAGE
-  Scenario: Login form is correctly displayed after clicking on log in button on main page
-    When Click on login button
-    Then Login form is displayed
-    And Email input is displayed
-    And Password input is dispalyed
-    And Submit button is dispalyed
+  @LOGIN_PAGE
+  Scenario: Log in form url is redirect after clicking on log in button on main page header
+    When Click on log in button
+    Then Redirect to log in form url "url"
+
+  @SMOKE
+  @LOGIN_PAGE
+  Scenario: Log in form is displayed after clicking on log in button on main page header
+    When Click on log in button
+    Then Log in form is displayed
+
+  @SMOKE
+  @LOGIN_PAGE
+  Scenario: Log in form email input is displayed after clicking on log in button on main page header
+    When Click on log in button
+    Then Email input is displayed
+
+  @SMOKE
+  @LOGIN_PAGE
+  Scenario: Log in form password input is displayed after clicking on log in button on main page header
+    When Click on log in button
+    Then Password input is displayed
+
+  @SMOKE
+  @LOGIN_PAGE
+  Scenario: Log in form submit button is displayed after clicking on log in button on main page header
+    When Click on log in button
+    Then Submit button is displayed
