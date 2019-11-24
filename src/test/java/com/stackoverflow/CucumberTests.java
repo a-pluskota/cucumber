@@ -1,4 +1,4 @@
-package tv.twitch;
+package com.stackoverflow;
 
 public interface CucumberTests {
 }

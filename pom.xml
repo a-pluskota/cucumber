@@ -4,15 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>tv.twitch</groupId>
+    <groupId>com.stackoverflow</groupId>
     <artifactId>cucumber-test-automaition-example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <cucumber.version>4.2.6</cucumber.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <junit.verion>4.12</junit.verion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     </properties>
@@ -39,7 +36,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit.verion}</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
 
@@ -112,11 +109,12 @@
                         <version>2.22.1</version>
                         <configuration>
                             <useSystemClassLoader>false</useSystemClassLoader>
-                            <groups>tv.twitch.CucumberTests</groups>
+                            <groups>com.stackoverflow.CucumberTests</groups>
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
         </profile>
     </profiles>
+
 </project>

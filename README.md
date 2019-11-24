@@ -34,23 +34,7 @@ $ mvn javadoc:javadoc
 #### Screenshots:
 * generated after every failed test in path: 
 ```target/screenshots```
-  
-#### Test Reports:  
-* ##### turn on reports mode:
-```sh  
-$ mvn site -DgenerateReports=false  
-```  
-* ##### run tests: 
-```sh  
-$ mvn test 
-```  
-* ##### generate reports:
-```sh  
-$ mvn surefire-report:report-only 
-```  
-* generated in file: 
-```target/site/surefire-report.html```
-
+ 
 ## Run parameters  
 To execute project with parameters, in command line type:   
 ```sh  

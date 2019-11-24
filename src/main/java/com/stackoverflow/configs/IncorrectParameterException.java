@@ -1,4 +1,4 @@
-package tv.twitch.configs;
+package com.stackoverflow.configs;
 
 public class IncorrectParameterException extends Exception{
 

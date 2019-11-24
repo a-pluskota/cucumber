@@ -1,19 +1,19 @@
-package tv.twitch;
+package com.stackoverflow;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import tv.twitch.webpages.MainPage;
+import com.stackoverflow.webpages.MainPage;
 
 import static org.junit.Assert.assertTrue;
-
 
 public class MainPageStepdefs {
 
     private Scenario scenario;
     private AbstractStepdefs abstractStepdefs;
+    private MainPage mainPage;
 
     public MainPageStepdefs(AbstractStepdefs abstractStepdefs) {
         this.abstractStepdefs = abstractStepdefs;
@@ -38,42 +38,41 @@ public class MainPageStepdefs {
 
     }
 
-    @Given("On Twitch TV main page")
-    public void on_Twitch_TV_main_page() {
+    @Given("On Stackoverflow main page")
+    public void on_Stackoverflow_main_page() {
 
         abstractStepdefs
                 .startBrowser();
 
         abstractStepdefs
                 .getDriver()
-                .get(abstractStepdefs.TWITCH_TV_URL);    }
+                .get(abstractStepdefs.STACKOVERFLOW_URL);
 
-    @Then("Featured video player is displayed.")
-    public void featured_video_player_is_displayed() {
-
-        assertTrue(
-                "Featured video player is not displayed on main page.",
-                new MainPage(abstractStepdefs.getDriver())
-                        .isFeaturedVideoPlayerDisplayed());
+        mainPage = new MainPage(abstractStepdefs.getDriver());
     }
 
+    @Then("Search input is displayed")
+    public void search_input_is_displayed() {
 
-    @Then("Sign up button is displayed.")
+        assertTrue(
+                "Search input is not displayed on main page.",
+                mainPage.isSearchInputDisplayed());
+    }
+
+    @Then("Sign up button is displayed")
     public void sign_up_button_is_displayed() {
 
         assertTrue(
                 "Sign up button is not displayed on main page.",
-                new MainPage(abstractStepdefs.getDriver())
-                        .isSignUpButtonDisplayed());
+                mainPage.isSignUpButtonDisplayed());
     }
 
-    @Then("Sign in button is displayed.")
-    public void sign_in_button_is_displayed() {
+    @Then("Log in button is displayed")
+    public void log_in_button_is_displayed() {
 
         assertTrue(
-                "Sign in button is not displayed on main page.",
-                new MainPage(abstractStepdefs.getDriver())
-                        .isSignInButtonDisplayed());
+                "Log in button is not displayed on main page.",
+                mainPage.isLogInButtonDisplayed());
     }
 
 }

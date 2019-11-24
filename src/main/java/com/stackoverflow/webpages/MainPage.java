@@ -1,4 +1,4 @@
-package tv.twitch.webpages;
+package com.stackoverflow.webpages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,13 +6,13 @@ import org.openqa.selenium.support.FindBy;
 
 public class MainPage extends AbstractPage {
 
-    @FindBy(xpath = "//div[@data-test-selector='featured-item-video']//video")
-    private WebElement featuredVideoPlayer;
+    @FindBy(xpath = "//input[@name = 'q']")
+    private WebElement searchInput;
 
-    @FindBy(xpath = "//button[@data-test-selector='anon-user-menu__login-button']")
-    private WebElement signInButton;
+    @FindBy(xpath = "//header//a[contains(@href, 'login')]")
+    private WebElement logInButton;
 
-    @FindBy(xpath = "//button[@data-test-selector='anon-user-menu__sign-up-button']")
+    @FindBy(xpath = "//header//a[contains(@href, 'signup')]")
     private WebElement signUpButton;
 
     public MainPage(WebDriver driverValue) {
@@ -20,13 +20,13 @@ public class MainPage extends AbstractPage {
     }
 
     /**
-     * Uses WebElement interface method isDisplayed to determinate, if featured video player is displayed.
+     * Uses WebElement interface method isDisplayed to determinate, if search input is displayed.
      *
      * @return true, if element is displayed
      */
-    public boolean isFeaturedVideoPlayerDisplayed() {
+    public boolean isSearchInputDisplayed() {
 
-        return featuredVideoPlayer.isDisplayed();
+        return searchInput.isDisplayed();
     }
 
     /**
@@ -44,8 +44,18 @@ public class MainPage extends AbstractPage {
      *
      * @return true, if element is displayed
      */
-    public boolean isSignInButtonDisplayed() {
+    public boolean isLogInButtonDisplayed() {
 
-        return signInButton.isDisplayed();
+        return logInButton.isDisplayed();
     }
+
+    public LoginPage clickLogInButton(
+            WebDriver driver
+    ) {
+
+        click(logInButton);
+
+        return new LoginPage(driver);
+    }
+
 }
