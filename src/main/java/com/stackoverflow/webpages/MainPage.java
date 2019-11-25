@@ -61,7 +61,7 @@ public class MainPage extends AbstractPage {
     }
 
     /**
-     * Uses the click( method from the AbstractPage to click in the sign up button from main page header.
+     * Uses the click method from the AbstractPage to click in the sign up button from main page header.
      *
      * @see com.stackoverflow.webpages.AbstractPage#click(WebElement)
      * @see com.stackoverflow.webpages.SingUpPage

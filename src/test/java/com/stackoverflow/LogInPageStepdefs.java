@@ -8,6 +8,7 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class LogInPageStepdefs {
@@ -36,7 +37,6 @@ public class LogInPageStepdefs {
         abstractStepdefs
                 .getDriver()
                 .quit();
-
     }
 
     @When("Click on log in button")
@@ -44,10 +44,14 @@ public class LogInPageStepdefs {
 
         new MainPage(abstractStepdefs.getDriver())
                 .clickLogInButton();
+
+        logInPage = new LogInPage(abstractStepdefs.getDriver());
     }
 
     @Then("Redirect to log in form url {string}")
-    public void redirect_to_log_in_form_url(String url) {
+    public void redirect_to_log_in_form_url(
+            String url
+    ) {
 
         url = abstractStepdefs.STACKOVERFLOW_URL
                 .concat("/users/login");
@@ -93,5 +97,47 @@ public class LogInPageStepdefs {
                 "Submit button is not displayed on main page.",
                 new LogInPage(abstractStepdefs.getDriver())
                         .isSubmitButtonDisplayed());
+    }
+
+    @When("The email field is filled in by {string}")
+    public void the_email_field_is_filled_in_by(
+            String email
+    ) {
+
+        logInPage.fillEmailInput(email);
+    }
+
+    @When("The password field is filled in by {string}")
+    public void the_password_field_is_filled_in_by(
+            String password
+    ) {
+
+        logInPage.fillPasswordInput(password);
+    }
+
+    @When("The submit button is clicked")
+    public void the_submit_button_is_clicked() {
+
+        logInPage.clickSubmitButton();
+    }
+
+    @Then("The email field displays a validation message with the content {string}")
+    public void the_email_field_displays_a_validation_message_with_the_content(
+            String emailValidationMessageContent
+    ) {
+
+        System.out.println(logInPage.getPasswordValidationMessage());
+
+        assertEquals(
+                "Email validation message do not displayed correct content.",
+                emailValidationMessageContent,
+                logInPage.getEmailValidationMessage());
+    }
+
+    @Then("The password field displays a validation message with the content {string}")
+    public void the_password_field_displays_a_validation_message_with_the_content(
+            String passwordValidationMessageContent
+    ) {
+
     }
 }

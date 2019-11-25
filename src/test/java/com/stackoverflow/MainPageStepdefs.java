@@ -35,7 +35,6 @@ public class MainPageStepdefs {
         abstractStepdefs
                 .getDriver()
                 .quit();
-
     }
 
     @Given("On Stackoverflow main page")

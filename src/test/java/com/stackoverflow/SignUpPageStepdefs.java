@@ -37,7 +37,6 @@ public class SignUpPageStepdefs {
         abstractStepdefs
                 .getDriver()
                 .quit();
-
     }
 
     @When("Click on sign up button")

@@ -19,7 +19,8 @@ public abstract class AbstractPage {
         this.wait = new FluentWait<WebDriver>((WebDriver) driver)
                 .pollingEvery(Duration.ofMillis(500))
                 .withTimeout(Duration.ofSeconds(5000))
-                .ignoring(WebDriverException.class);
+                .ignoring(WebDriverException.class)
+                .ignoring(NoSuchElementException.class);
 
         PageFactory.initElements(driver, this);
 
