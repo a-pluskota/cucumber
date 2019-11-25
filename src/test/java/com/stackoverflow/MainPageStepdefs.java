@@ -1,5 +1,6 @@
 package com.stackoverflow;
 
+import com.stackoverflow.webpages.QuestionsPage;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -32,9 +33,9 @@ public class MainPageStepdefs {
                     .after(scenario);
         }
 
-        abstractStepdefs
-                .getDriver()
-                .quit();
+//        abstractStepdefs
+//                .getDriver()
+//                .quit();
     }
 
     @Given("On Stackoverflow main page")
@@ -55,7 +56,8 @@ public class MainPageStepdefs {
 
         assertTrue(
                 "Search input is not displayed on main page.",
-                mainPage.isSearchInputDisplayed());
+                new QuestionsPage(abstractStepdefs.getDriver())
+                        .isSearchInputDisplayed());
     }
 
     @Then("Sign up button is displayed")

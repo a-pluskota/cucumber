@@ -1,4 +1,4 @@
-Feature: Stackoverflow login form page
+Feature: Stackoverflow sign up form page
 
   Background:
     Given On Stackoverflow main page
@@ -6,22 +6,27 @@ Feature: Stackoverflow login form page
 
   @SMOKE
   @SIGNUP_PAGE
-  Scenario: Sign up form url is redirect after clicking on log in button on main page header
+  Scenario: Url is redirect after clicking on sign up button on main page header
     Then Redirect to sign up form url "url"
 
   @SMOKE
   @SIGNUP_PAGE
-  Scenario: Sign up form email input is displayed after clicking on log in button on main page header
+  Scenario: Sign up form is displayed after clicking on sign up button on main page header
+    Then Sign up form is displayed
+
+  @SMOKE
+  @SIGNUP_PAGE
+  Scenario: Sign up form email input is displayed after clicking on sign up button on main page header
     Then Email input is displayed
 
   @SMOKE
   @SIGNUP_PAGE
-  Scenario: Sign up form password input is displayed after clicking on log in button on main page header
+  Scenario: Sign up form password input is displayed after clicking on sign up button on main page header
     Then Password input is displayed
 
   @SMOKE
   @SIGNUP_PAGE
-  Scenario: Sign up form submit button is displayed after clicking on log in button on main page header
+  Scenario: Sign up form submit button is displayed after clicking on sign up button on main page header
     Then Submit button is displayed
 
   @SMOKE

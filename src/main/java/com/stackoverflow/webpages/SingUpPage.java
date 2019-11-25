@@ -16,8 +16,8 @@ public class SingUpPage extends AbstractPage {
     @FindBy(id = "opt-in")
     private WebElement optInCheckbox;
 
-    public SingUpPage(WebDriver driverValue) {
-        super(driverValue);
+    public SingUpPage(WebDriver driver) {
+        super(driver);
     }
 
     /**

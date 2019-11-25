@@ -5,10 +5,10 @@ import com.stackoverflow.webpages.SingUpPage;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class SignUpPageStepdefs {
@@ -34,9 +34,9 @@ public class SignUpPageStepdefs {
                     .after(scenario);
         }
 
-        abstractStepdefs
-                .getDriver()
-                .quit();
+//        abstractStepdefs
+//                .getDriver()
+//                .quit();
     }
 
     @When("Click on sign up button")
@@ -66,6 +66,8 @@ public class SignUpPageStepdefs {
                 "Sign up form is not displayed on main page.",
                 new SingUpPage(abstractStepdefs.getDriver())
                         .isSubmitFormDisplayed());
+
+        assertEquals(1,2);
     }
 
     @Then("Display name input is displayed")

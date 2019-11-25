@@ -64,27 +64,34 @@ public class AbstractStepdefs {
 
     protected void after(Scenario scenario) {
 
-        if (scenario.isFailed()) {
+        if (driver != null) {
 
-            File file = ((TakesScreenshot)driver)
-                    .getScreenshotAs(OutputType.FILE);
+            if (scenario.isFailed()) {
 
-            String pathToFile = createPathToFileWithFailedTestScreenshots(scenario);
+                File file = ((TakesScreenshot) driver)
+                        .getScreenshotAs(OutputType.FILE);
 
-            try {
-                FileUtils.copyFile(
-                        file,
-                        new File(pathToFile));
+                String pathToFile = createPathToFileWithFailedTestScreenshots(scenario);
 
-                logger.info(String.format(
-                        "File with screenshot of failed test was saved in path %s.",
-                        pathToFile));
+                try {
+                    FileUtils.copyFile(
+                            file,
+                            new File(pathToFile));
 
-            } catch (IOException e) {
-                e.printStackTrace();
+                    logger.info(String.format(
+                            "File with screenshot of failed test was saved in path %s.",
+                            pathToFile));
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
 
+            driver.quit();
         }
+
+        driver = null;
     }
 
 }
