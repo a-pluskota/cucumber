@@ -1,6 +1,5 @@
 package com.stackoverflow;
 
-import com.stackoverflow.webpages.MainPage;
 import com.stackoverflow.webpages.QuestionsPage;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -15,8 +14,6 @@ public class QuestionsPageStepdefs {
     private Scenario scenario;
     private AbstractStepdefs abstractStepdefs;
     private QuestionsPage questionsPage;
-    private MainPage mainPage;
-//    private static final String search_within_a_tag = "java";
 
     public QuestionsPageStepdefs(AbstractStepdefs abstractStepdefs) {
         this.abstractStepdefs = abstractStepdefs;
@@ -35,9 +32,6 @@ public class QuestionsPageStepdefs {
                     .after(scenario);
         }
 
-//        abstractStepdefs
-//                .getDriver()
-//                .quit();
     }
 
     @When("Click on questions button in main page footer")

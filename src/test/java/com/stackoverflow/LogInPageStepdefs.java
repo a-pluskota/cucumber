@@ -8,7 +8,6 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class LogInPageStepdefs {
@@ -34,9 +33,6 @@ public class LogInPageStepdefs {
                     .after(scenario);
         }
 
-//        abstractStepdefs
-//                .getDriver()
-//                .quit();
     }
 
     @When("Click on log in button")

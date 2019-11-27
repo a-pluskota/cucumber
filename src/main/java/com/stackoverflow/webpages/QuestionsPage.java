@@ -86,7 +86,7 @@ public class QuestionsPage extends AbstractPage {
     }
 
     /**
-     * Uses the click method from the AbstractPage to click in the questions button from main page footer.
+     * Uses the click() method from the AbstractPage to click in the questions button from main page footer.
      *
      * @see com.stackoverflow.webpages.AbstractPage#click(WebElement)
      * @see com.stackoverflow.webpages.QuestionsPage
@@ -126,12 +126,19 @@ public class QuestionsPage extends AbstractPage {
         return listOfEveryTextValue;
     }
 
+    /**
+     * Uses the isLocatorPresentInEveryListWebelement() method to check if each
+     * element of the search result list has a tag with the value specified
+     * in the String type parameter named tag.
+     *
+     * @param tag
+     * @return true, if every list element contains tag
+     */
     public boolean isTagPresentInSearchResultsList(
             String tag
     ) {
 
-        return isLocatorPresentInEveryListWebelement(
-                By
+        return isLocatorPresentInEveryListWebelement(By
                         .xpath(new StringBuilder()
                                 .append("//a[@class='post-tag'")
                                 .append(" and contains(text(),'")
@@ -140,6 +147,15 @@ public class QuestionsPage extends AbstractPage {
                                 .toString()));
     }
 
+    /**
+     * Uses the isLocatorPresentInEveryListWebelement() method in loop to check if each
+     * element of the search result list has at least one phrase with the value specified
+     * in the String type parameter named phrase. Using the toLowerCase() method in loop
+     * ensures case insensitive matching.
+     *
+     * @param phrase
+     * @return true, if every list element contains tag
+     */
     public boolean isPhrasePresentInSearchResultsList(
             String phrase
     ) {
@@ -161,13 +177,20 @@ public class QuestionsPage extends AbstractPage {
         return true;
     }
 
+    /**
+     * Uses the isLocatorPresentInEveryListWebelement() method to check if each
+     * element of the search result list has a author with the value specified
+     * in the String type parameter named author.
+     *
+     * @param author
+     * @return true, if every list element contains correct author
+     */
     public boolean isAuthorPresentInSearchResultsList(
             String author
     ) {
 
-        return isLocatorPresentInEveryListWebelement(
-                By
-                        .xpath(new StringBuilder()
+        return isLocatorPresentInEveryListWebelement(By
+                .xpath(new StringBuilder()
                                 .append("//div[@class='summary']")
                                 .append("/div[@class='started fr']")
                                 .append("/a[contains(text(),'")

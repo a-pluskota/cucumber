@@ -18,7 +18,7 @@ Feature: Stackoverflow questions page
 
 
   @QUESTIONS_PAGE
-    Scenario Outline: Search withing a tag
+    Scenario Outline: Search within a tag
     When Filled search input with "<search_within_a_tag>"
     And Clicked return key
     Then List of search results is returned
@@ -70,7 +70,7 @@ Feature: Stackoverflow questions page
 
 
   @QUESTIONS_PAGE
-  Scenario Outline: Search withing a tag, exact phrase and by author
+  Scenario Outline: Search within a tag, exact phrase and by author
     When Filled search input with "<search_within_a_tag>"
     And Add clicked space key
     And Filled search input with "<search_exact_phrase>"

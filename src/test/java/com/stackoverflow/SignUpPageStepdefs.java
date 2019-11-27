@@ -15,7 +15,6 @@ public class SignUpPageStepdefs {
 
     private Scenario scenario;
     private AbstractStepdefs abstractStepdefs;
-    private SingUpPage singUpPage;
 
     public SignUpPageStepdefs(AbstractStepdefs abstractStepdefs) {
         this.abstractStepdefs = abstractStepdefs;
@@ -34,9 +33,6 @@ public class SignUpPageStepdefs {
                     .after(scenario);
         }
 
-//        abstractStepdefs
-//                .getDriver()
-//                .quit();
     }
 
     @When("Click on sign up button")

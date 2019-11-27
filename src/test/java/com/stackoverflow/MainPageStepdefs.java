@@ -33,9 +33,6 @@ public class MainPageStepdefs {
                     .after(scenario);
         }
 
-//        abstractStepdefs
-//                .getDriver()
-//                .quit();
     }
 
     @Given("On Stackoverflow main page")
