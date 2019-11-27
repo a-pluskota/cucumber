@@ -18,10 +18,15 @@
 ```sh  
 $ mvn dependency:resolve  
 ```  
+
+#### Run tests: 
+```sh  
+$ mvn test 
+```  
   
 ## Documentation  
 #### Javadoc:
-* generate Javadoc:
+* ##### generate Javadoc:
 ```sh  
 $ mvn javadoc:javadoc  
 ```  
@@ -34,35 +39,19 @@ $ mvn javadoc:javadoc
 #### Screenshots:
 * generated after every failed test in path: 
 ```target/screenshots```
-  
-#### Test Reports:  
-* turn on reports mode
-```sh  
-$ mvn site -DgenerateReports=false  
-```  
-* run tests: 
-```sh  
-$ mvn test 
-```  
-* generate reports
-```sh  
-$ mvn surefire-report:report-only 
-```  
-* generated in file: 
-```target/site/surefire-report.html```
-
+ 
 ## Run parameters  
 To execute project with parameters, in command line type:   
 ```sh  
 $ -Dname_of_parameter=value_of_parameter  
 ```  
 #### Available parameters:
-* #####Chrome headless mode:
+* ##### Chrome headless mode:
 ```sh  
 $ -DHEADLESS_MODE=on
 ```  
-* #####Chosen test suit:
+* ##### Chosen test suit:
 ```sh  
 $ -Dcucumber.options="--tags @SUIT_NAME "
 ```  
-Available suits: ```SMOKE```, ```MAIN_PAGE```,
+Available suits: ```SMOKE```, ```LOGIN_PAGE```, ```SIGNUP_PAGE```

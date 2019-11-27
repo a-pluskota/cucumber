@@ -1,5 +1,7 @@
-package tv.twitch;
+package com.stackoverflow;
 
+import com.stackoverflow.configs.IncorrectParameterException;
+import com.stackoverflow.configs.WebDriverConfig;
 import cucumber.api.Scenario;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
@@ -7,8 +9,6 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import tv.twitch.configs.IncorrectParameterException;
-import tv.twitch.configs.WebDriverConfig;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +16,7 @@ import java.sql.Timestamp;
 
 public class AbstractStepdefs {
 
-    protected static final String TWITCH_TV_URL = "https://www.twitch.tv/";
+    protected static final String STACKOVERFLOW_URL = "https://stackoverflow.com";
 
     protected WebDriver driver;
     private static final Logger logger = Logger
@@ -64,26 +64,34 @@ public class AbstractStepdefs {
 
     protected void after(Scenario scenario) {
 
-        if (scenario.isFailed()) {
+        if (driver != null) {
 
-            File file = ((TakesScreenshot)driver)
-                    .getScreenshotAs(OutputType.FILE);
+            if (scenario.isFailed()) {
 
-            String pathToFile = createPathToFileWithFailedTestScreenshots(scenario);
+                File file = ((TakesScreenshot) driver)
+                        .getScreenshotAs(OutputType.FILE);
 
-            try {
-                FileUtils.copyFile(
-                        file,
-                        new File(pathToFile));
+                String pathToFile = createPathToFileWithFailedTestScreenshots(scenario);
 
-                logger.info(String.format(
-                        "File with screenshot of failed test was saved in path %s.",
-                        pathToFile));
+                try {
+                    FileUtils.copyFile(
+                            file,
+                            new File(pathToFile));
 
-            } catch (IOException e) {
-                e.printStackTrace();
+                    logger.info(String.format(
+                            "File with screenshot of failed test was saved in path %s.",
+                            pathToFile));
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
+
+            driver.quit();
         }
+
+        driver = null;
     }
 
 }

@@ -1,4 +1,4 @@
-package tv.twitch.configs;
+package com.stackoverflow.configs;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.log4j.Logger;
