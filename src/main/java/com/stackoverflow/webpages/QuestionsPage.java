@@ -97,35 +97,6 @@ public class QuestionsPage extends AbstractPage {
         click(questionsButton);
     }
 
-    private boolean isLocatorPresentInEveryListWebelement(
-        By locator
-    ) {
-
-        for (WebElement element : listOfQueryResults) {
-
-            if (element.findElements(locator).size() == 0) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    private List<String> getTextValueFromLocatorForEveryListWebelement(
-            By locator
-    ) {
-
-        List<String> listOfEveryTextValue = new LinkedList<>();
-
-        for (WebElement element : listOfQueryResults) {
-
-            listOfEveryTextValue
-                    .add(element.findElement(locator).getText());
-        }
-
-        return listOfEveryTextValue;
-    }
-
     /**
      * Uses the isLocatorPresentInEveryListWebelement() method to check if each
      * element of the search result list has a tag with the value specified
@@ -197,5 +168,34 @@ public class QuestionsPage extends AbstractPage {
                                 .append(author)
                                 .append("')]")
                                 .toString()));
+    }
+
+    private boolean isLocatorPresentInEveryListWebelement(
+            By locator
+    ) {
+
+        for (WebElement element : listOfQueryResults) {
+
+            if (element.findElements(locator).size() == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private List<String> getTextValueFromLocatorForEveryListWebelement(
+            By locator
+    ) {
+
+        List<String> listOfEveryTextValue = new LinkedList<>();
+
+        for (WebElement element : listOfQueryResults) {
+
+            listOfEveryTextValue
+                    .add(element.findElement(locator).getText());
+        }
+
+        return listOfEveryTextValue;
     }
 }
